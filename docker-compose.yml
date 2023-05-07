@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  articles-download:
+    build: .
+    container_name: articles-download-pipeline
+    env_file:
+      - .env.prod
+    volumes:
+      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+
+    command: " articles-download"
+
+  sources-download:
+    build: .
+    container_name: sources-download-pipeline
+    env_file:
+      - .env.prod
+    volumes:
+      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+
+    command: " sources-download"
+
+  articles-import:
+    build: .
+    container_name: articles-import-pipeline
+    env_file:
+      - .env.prod
+    volumes:
+      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+
+    command: " articles-import"
+
+  sources-import:
+    build: .
+    container_name: sources-import-pipeline
+    env_file:
+      - .env.prod
+    volumes:
+      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+
+    command: " sources-import"

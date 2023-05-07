@@ -1,0 +1,8 @@
+newsapi-sa.json
+__pycache__
+.vscode
+.pytest_cache
+.env
+.env.prod
+neugelb.env
+notas.py
