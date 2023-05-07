@@ -1,41 +1,41 @@
 version: '3.8'
 services:
   articles-download:
-    build: .
+    image: newsapi-pipeline
     container_name: articles-download-pipeline
     env_file:
       - .env.prod
     volumes:
-      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+      - ./newsapi-sa.json:/app/newsapi-sa.json
 
     command: " articles-download"
 
   sources-download:
-    build: .
+    image: newsapi-pipeline
     container_name: sources-download-pipeline
     env_file:
       - .env.prod
     volumes:
-      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+      - ./newsapi-sa.json:/app/newsapi-sa.json
 
     command: " sources-download"
 
   articles-import:
-    build: .
+    image: newsapi-pipeline
     container_name: articles-import-pipeline
     env_file:
       - .env.prod
     volumes:
-      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+      - ./newsapi-sa.json:/app/newsapi-sa.json
 
     command: " articles-import"
 
   sources-import:
-    build: .
+    image: newsapi-pipeline
     container_name: sources-import-pipeline
     env_file:
       - .env.prod
     volumes:
-      - ./commerzbank-articles-storage.json:/app/commerzbank-articles-storage.json
+      - ./newsapi-sa.json:/app/newsapi-sa.json
 
     command: " sources-import"
