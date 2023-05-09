@@ -97,3 +97,14 @@ After running the pipelines, you will find a new dataset `commerzbank_articles` 
         LEFT JOIN `commerzbank_articles.newsapi_sources` sources ON articles.source_id = sources.source_id;
 
 This will select all the columns from both tables and joins them based on the `source_id` column. You can modify the query as needed to select specific columns or filter the results.
+
+## Cleaning up the Environment
+
+To clean up the environment, follow these steps:
+
+1. Remove the Docker containers and image using the following commands:
+
+    docker rm articles-download-pipeline sources-download-pipeline articles-import-pipeline sources-import-pipeline
+    docker rmi newsapi-pipeline
+
+2. Delete the local repository folder.
