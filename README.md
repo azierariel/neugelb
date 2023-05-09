@@ -104,7 +104,9 @@ To clean up the environment, follow these steps:
 
 1. Remove the Docker containers and image using the following commands:
 
-    docker rm articles-download-pipeline sources-download-pipeline articles-import-pipeline sources-import-pipeline
-    docker rmi newsapi-pipeline
+```
+docker rm articles-download-pipeline sources-download-pipeline articles-import-pipeline sources-import-pipeline
+docker rmi newsapi-pipeline
+```
 
 2. Delete the local repository folder.
